@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { motion, useScroll } from 'motion/react'
+import { delay, motion, useScroll } from 'motion/react'
 function App() {
   const { scrollYProgress } = useScroll()
   return (
     <>
 
-      <motion.div animate={{scale:0 , height:0}} transition={{delay:6 ,duration:1}}>
+      <motion.div animate={{ scale: 0, height: 0 }} transition={{ delay: 6, duration: 1 }}>
         <motion.div
           initial={{
             y: -10,
@@ -25,14 +25,14 @@ function App() {
           className="md:text-3xl font-bold  w-[100%]  h-[100vh] bg-cover text-white  bg-purple-600 flex justify-center items-center">
 
 
-         
+
           <motion.div animate={{ x: 1500 }} transition={{ delay: 5 }} className=' fixed z-20'>
             <motion.h1 className=' flex' animate={{ scale: 5 }} transition={{ delay: 2 }}>
               <motion.h1 initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ delay: 2, duration: 1 }}>
                 W
               </motion.h1>
               <motion.h1 initial={{ y: -1000 }} animate={{ y: 0 }} transition={{ delay: 2 }}>
-              E
+                E
               </motion.h1>
               <motion.h1 initial={{ y: 1000 }} animate={{ y: 0 }} transition={{ delay: 1, duration: 2 }}>
                 L
@@ -43,13 +43,13 @@ function App() {
               <motion.h1 initial={{ x: 500 }} animate={{ x: 0, rotate: -360 }} transition={{ delay: 1, duration: 1 }}>
                 O
               </motion.h1>
-               <motion.h1 initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ delay: 2, duration: 1 }}>
-              M
+              <motion.h1 initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ delay: 2, duration: 1 }}>
+                M
               </motion.h1>
               <motion.h1 initial={{ y: -1000 }} animate={{ y: 0 }} transition={{ delay: 2 }}>
                 E
               </motion.h1>
-            
+
             </motion.h1>
           </motion.div>
           {/* <motion.hr className=' h-3 w-96' initial={{y:150}}>
@@ -59,7 +59,7 @@ function App() {
       </motion.div>
 
       {/* <motion.div style={{ scaleX: scrollYProgress }} className='h-5 bg-red-400   origin-left z-50'></motion.div> */}
-      <motion.p initial={{ scale: 0 , height:0 }} animate={{ scale: 1 }} transition={{ delay: 6, duration: 2 }} className='px-10' >sunt accusantium itaque libero iste voluptates, molestias quos odio aperiam ullam fuga soluta? Perferendis voluptate rerum dolorem, praesentium enim totam temporibus fugiat!
+      {/* <motion.p initial={{ scale: 0 , height:0 }} animate={{ scale: 1 }} transition={{ delay: 6, duration: 2 }} className='px-10' >sunt accusantium itaque libero iste voluptates, molestias quos odio aperiam ullam fuga soluta? Perferendis voluptate rerum dolorem, praesentium enim totam temporibus fugiat!
         Quas, doloremque labore. Dolores laborum perspiciatis asperiores, nesciunt illo harum voluptas cum voluptate veritatis rem similique libero suscipit, commodi dolor! Consectetur voluptas sapiente quam tempore similique laborum, est reprehenderit libero!
         Architecto fugit soluta quia provident obcaecati mollitia quas quidem deserunt libero nam ab iusto facilis corporis quaerat rem ex quod blanditiis quis, aliquam qui! Modi accusamus debitis animi facilis eaque.
         Cupiditate cumque voluptate animi nisi dicta rem eaque deserunt provident architecto aspernatur eligendi, dolorem tempore expedita, nesciunt quam sapiente voluptatem, error debitis deleniti aut molestias alias. Necessitatibus aliquam omnis ipsa.
@@ -134,7 +134,17 @@ function App() {
         Vel praesentium adipisci ducimus, aliquid eum consectetur iure assumenda officiis in voluptatum magni ratione quo commodi. Fugiat suscipit sit harum nihil repellat, laudantium animi qui quidem, sed ipsa mollitia inventore.
         Ratione, earum magni! Architecto animi culpa dolore totam corporis eligendi, nobis libero fuga enim tenetur, distinctio ratione adipisci natus deserunt, porro omnis reiciendis! Similique quibusdam sapiente delectus recusandae, voluptatem quaerat!
         Quo perferendis earum repudiandae quaerat nisi consectetur veritatis in recusandae atque id amet asperiores, tempora magnam explicabo accusantium fugit minus cupiditate dolorum inventore, aperiam aspernatur? Illo est similique quis totam.
-      </motion.p>
+      </motion.p> */}
+
+      <motion.div    drag whileDrag={{scale:0.5}} dragConstraints={{left:0, right:0, top:0,bottom:0}} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 6 }} className=' w-full   bg-blue-950  h-[100vh] flex '>
+        <motion.div  drag whileDrag={{scale:0.5}} dragConstraints={{left:0, right:0, top:0,bottom:0}} initial={{ x: -2000 }} animate={{ x: 0, }} transition={{ delay: 7 }} className='bg-blue-500   cursor-pointer  text-white flex justify-center items-center uppercase h-full w-[20%]'> Drag me</motion.div>
+        <motion.div  drag whileDrag={{scale:0.5}} dragConstraints={{left:0, right:0, top:0,bottom:0}} initial={{ x: -2000 }} animate={{ x: 0, }} transition={{ delay: 8 }} className='bg-blue-600   cursor-pointer  text-white flex justify-center items-center uppercase h-full w-[20%]' > Drag me</motion.div>
+        <motion.div  drag whileDrag={{scale:0.5}} dragConstraints={{left:0, right:0, top:0,bottom:0}} initial={{ x: -2000 }} animate={{ x: 0, }} transition={{ delay: 9 }} className='bg-blue-700   cursor-pointer  text-white flex justify-center items-center uppercase h-full w-[20%]' > Drag me</motion.div>
+        <motion.div  drag whileDrag={{scale:0.5}} dragConstraints={{left:0, right:0, top:0,bottom:0}} initial={{ x: -2000 }} animate={{ x: 0, }} transition={{ delay: 10 }} className='bg-blue-800  cursor-pointer  text-white flex justify-center items-center uppercase h-full w-[20%]'> Drag me</motion.div>
+        <motion.div  drag whileDrag={{scale:0.5}} dragConstraints={{left:0, right:0, top:0,bottom:0}} initial={{ x: -2000 }} animate={{ x: 0, }} transition={{ delay: 11 }} className='bg-blue-900  cursor-pointer  text-white flex justify-center items-center uppercase h-full w-[20%]'> Drag me</motion.div>
+
+
+      </motion.div>
     </>
   )
 }
