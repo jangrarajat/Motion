@@ -22,12 +22,12 @@ function App() {
             delay: 1,
             ease: "anticipate"
           }}
-          className="text-3xl font-bold  w-[100%]  h-[100vh] bg-cover text-white  bg-purple-600 flex justify-center items-center">
+          className="md:text-3xl font-bold  w-[100%]  h-[100vh] bg-cover text-white  bg-purple-600 flex justify-center items-center">
 
 
          
           <motion.div animate={{ x: 1500 }} transition={{ delay: 5 }} className=' fixed z-20'>
-            <motion.h1 className=' flex' animate={{ scale: 10 }} transition={{ delay: 2 }}>
+            <motion.h1 className=' flex' animate={{ scale: 5 }} transition={{ delay: 2 }}>
               <motion.h1 initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ delay: 2, duration: 1 }}>
                 W
               </motion.h1>
