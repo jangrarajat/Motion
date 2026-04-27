@@ -2,12 +2,12 @@ name: Build iOS App
 
 on:
   push:
-    branches: [ "main" ] # Jab bhi aap main branch par push karenge, yeh chalega
-  workflow_dispatch: # Manual button chalane ke liye
+    branches: [ "main" ] 
+  workflow_dispatch: 
 
 jobs:
   build-ios:
-    runs-on: macos-latest # Yeh GitHub ka free Mac server hai
+    runs-on: macos-latest 
 
     steps:
     - name: Checkout Code
@@ -37,7 +37,7 @@ jobs:
         zip -r app.ipa Payload
 
     - name: Upload IPA Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ios-app-unsigned
         path: ios/App/build/Build/Products/Release-iphoneos/app.ipa
