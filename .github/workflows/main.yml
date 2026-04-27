@@ -6,7 +6,7 @@ on:
   workflow_dispatch: 
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # <-- Yeh line warning fix kar degi
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-ios:
@@ -19,7 +19,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18' 
+        node-version: '20' # <-- Yahan 18 se 20 kar diya hai
 
     - name: Install Dependencies
       run: npm install
