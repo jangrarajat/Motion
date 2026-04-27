@@ -1,0 +1,43 @@
+name: Build iOS App
+
+on:
+  push:
+    branches: [ "main" ] # Jab bhi aap main branch par push karenge, yeh chalega
+  workflow_dispatch: # Manual button chalane ke liye
+
+jobs:
+  build-ios:
+    runs-on: macos-latest # Yeh GitHub ka free Mac server hai
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' 
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Web App (Vite)
+      run: npm run build
+
+    - name: Sync Capacitor iOS
+      run: npx cap sync ios
+
+    - name: Build unsigned IPA
+      run: |
+        cd ios/App
+        xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos build CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" -derivedDataPath build
+        cd build/Build/Products/Release-iphoneos
+        mkdir Payload
+        cp -r App.app Payload/
+        zip -r app.ipa Payload
+
+    - name: Upload IPA Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ios-app-unsigned
+        path: ios/App/build/Build/Products/Release-iphoneos/app.ipa
